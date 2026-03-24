@@ -12,6 +12,9 @@ import Register from "./pages/Register.jsx";
 
 import MainLayout from "./layouts/MainLayout.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Product from "./pages/Product.jsx";
+import Repository from "./pages/Repository.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -22,12 +25,17 @@ createRoot(document.getElementById("root")).render(
           <Route index element={<Home />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/sobre" element={<Sobre />} />
+
+          <Route path='produto/:slug' element={<Product />} />
+          <Route path=":username/:project" element={<Repository />} />
         </Route>
 
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
+
+        <Route path='*' element={<NotFound />} />
 
       </Routes>
     </BrowserRouter>
